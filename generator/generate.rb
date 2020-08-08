@@ -44,15 +44,15 @@ FileUtils.rm_f "#{path}.convert"
 
 # Decide on a suitable font size.
 dimension = [image.rows, image.columns].max
-font_size = dimension / 20
+font_size = dimension / 16
 
 # Add top / right / bottom / left text.
 text              = Magick::Draw.new
 text.font_family  = 'helvetica'
 text.pointsize    = font_size
 text.fill         = 'white'
-text.stroke       = 'black'
-text.stroke_width = 1
+text.stroke       = 'white'
+text.stroke_width = 2
 edge_padding      = font_size / 4
 
 text.annotate(image, 0, 0, 0, edge_padding, 'top') do
@@ -125,7 +125,7 @@ transformations.each do |t|
 
   # Add centered text displaying the orientation tag number.
   text.annotate(tmp_image, 0, 0, 0, 0, t[:exif_tag].to_s) do
-    self.gravity   = Magick::CenterGravity
+    self.gravity   = Magick::SouthEastGravity
     text.pointsize = font_size * 2
   end
 
