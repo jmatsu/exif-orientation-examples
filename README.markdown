@@ -5,12 +5,22 @@ EXIF Orientation-flag example images
 > 
 > Please visit the original repository [recurser/exif-orientation-examples](https://github.com/recurser/exif-orientation-examples).
 
+How to execute the script (macOS)
+
 ```
 brew install gs imagemagick
-# or
-docker build . -t exif-examples && docker run --rm -v $(pwd):/workdir exif-examples
-
+# and then
 make all
+
+# Use Docker
+docker build . -t exif-examples && docker run --rm -v $(pwd):/workdir exif-examples
+```
+
+```
+# macOS
+echo "data:image/jpeg;base64,$(base64 -i jpegs/square_0.jpg|tr -d '\n')"
+# Use Docker
+echo "data:image/jpeg;base64,$(base64 -w 0 jpegs/square_0.jpg)"
 ```
 
 <details>
