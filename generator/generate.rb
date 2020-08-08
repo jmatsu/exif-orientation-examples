@@ -30,7 +30,7 @@ abort 'Error: The convert command does not appear to be available' if `which con
 abort 'Error: the input file must be a JPEG' unless image.format == 'JPEG'
 
 # Decide where we'll put the output.
-dest_folder    = File.dirname(source)
+dest_folder = File.join("jpegs", File.dirname(source))
 dest_file_base = File.basename(source, '.*')
 dest_extention = File.extname(source)
 

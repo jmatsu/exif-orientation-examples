@@ -1,6 +1,11 @@
 EXIF Orientation-flag example images
 ====================================
 
+> This fork is optimized for my work. 
+> 
+> Please visit the original repository [recurser/exif-orientation-examples](https://github.com/recurser/exif-orientation-examples).
+
+<details>
 Example images using each of the EXIF orientation flags (0-to-8), in both landscape and portrait orientations.
 
 [See here](http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/) for more information.
@@ -66,7 +71,7 @@ Once you've made your commits:
 3. Push to your branch - `git push origin my_branch`
 4. Create a [Pull Request](http://help.github.com/pull-requests/) from your branch
 5. That's it!
-
+</details>
 
 Author
 ------

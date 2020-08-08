@@ -1,11 +1,33 @@
-all: portrait landscape
+all: square portrait landscape
 
-portrait:
-	curl --location https://source.unsplash.com/random/1200x1600 --output ./Portrait.jpg
-	bash -c "cd generator && ./generate.rb ../Portrait.jpg"
-	rm -f ./Portrait.jpg
+portrait: portrait-3-4 portrait-9-16
 
-landscape:
-	curl --location https://source.unsplash.com/random/1600x1200 --output ./Landscape.jpg
-	bash -c "cd generator && ./generate.rb ../Landscape.jpg"
-	rm -f ./Landscape.jpg
+landscape: landscape-4-3 landscape-16-9
+
+bundle_init:
+	bash -c "cd generator && bundle config set path vendor/bundle && bundle install"
+
+square: bundle_init
+	curl --location "https://dummyimage.com/100x100/F00/FFF.jpg&text=square" --output ./square.jpg
+	bash -c "cd generator && bundle exec ruby ./generate.rb ../square.jpg"
+	rm -f ./square.jpg
+
+portrait-3-4: bundle_init
+	curl --location "https://dummyimage.com/120x160/0F0/FFF.jpg&text=portrait-4-3" --output ./portrait-3-4.jpg
+	bash -c "cd generator && bundle exec ruby ./generate.rb ../portrait-3-4.jpg"
+	rm -f ./portrait-3-4.jpg
+
+portrait-9-16: bundle_init
+	curl --location "https://dummyimage.com/90-160/0F0/FFF.jpg&text=portrait-9-16" --output ./portrait-9-16.jpg
+	bash -c "cd generator && bundle exec ruby ./generate.rb ../portrait-9-16.jpg"
+	rm -f ./portrait-9-16.jpg
+
+landscape-4-3: bundle_init
+	curl --location "https://dummyimage.com/160x120/00F/FFF.jpg&text=landscape-4-3" --output ./landscape-4-3.jpg
+	bash -c "cd generator && bundle exec ruby ./generate.rb ../landscape-4-3.jpg"
+	rm -f ./landscape-4-3.jpg
+
+landscape-16-9: bundle_init
+	curl --location "https://dummyimage.com/160x90/00F/FFF.jpg&text=landscape-16-9" --output ./landscape-16-9.jpg
+	bash -c "cd generator && bundle exec ruby ./generate.rb ../landscape-16-9.jpg"
+	rm -f ./landscape-16-9.jpg
