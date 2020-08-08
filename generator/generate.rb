@@ -2,7 +2,7 @@
 
 # Make sure to 'brew install gs' before running this.
 
-require 'RMagick'
+require 'rmagick'
 require 'tempfile'
 
 if ARGV.length != 1
@@ -30,7 +30,7 @@ abort 'Error: The convert command does not appear to be available' if `which con
 abort 'Error: the input file must be a JPEG' unless image.format == 'JPEG'
 
 # Decide where we'll put the output.
-dest_folder = File.join("jpegs", File.dirname(source))
+dest_folder = File.join(File.dirname(source), "jpegs")
 dest_file_base = File.basename(source, '.*')
 dest_extention = File.extname(source)
 

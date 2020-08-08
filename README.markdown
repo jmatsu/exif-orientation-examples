@@ -5,6 +5,14 @@ EXIF Orientation-flag example images
 > 
 > Please visit the original repository [recurser/exif-orientation-examples](https://github.com/recurser/exif-orientation-examples).
 
+```
+brew install gs imagemagick
+# or
+docker build . -t exif-examples && docker run --rm -v $(pwd):/workdir exif-examples
+
+make all
+```
+
 <details>
 Example images using each of the EXIF orientation flags (0-to-8), in both landscape and portrait orientations.
 

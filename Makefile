@@ -18,7 +18,7 @@ portrait-3-4: bundle_init
 	rm -f ./portrait-3-4.jpg
 
 portrait-9-16: bundle_init
-	curl --location "https://dummyimage.com/90-160/0F0/FFF.jpg&text=portrait-9-16" --output ./portrait-9-16.jpg
+	curl --location "https://dummyimage.com/90x160/0F0/FFF.jpg&text=portrait-9-16" --output ./portrait-9-16.jpg
 	bash -c "cd generator && bundle exec ruby ./generate.rb ../portrait-9-16.jpg"
 	rm -f ./portrait-9-16.jpg
 
